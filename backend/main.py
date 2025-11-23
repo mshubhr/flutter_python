@@ -10,7 +10,6 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-# Allow Flutter to access API
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -21,7 +20,6 @@ app.add_middleware(
 
 pwd_context = CryptContext(schemes=["sha256_crypt"], deprecated="auto")
 
-# DB dependency
 def get_db():
     db = SessionLocal()
     try:
